@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    background: floralwhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 1000px;
+    background: floralwhite;
+    min-height: 200px;
+    border: solid 1px #ddd;
+    /* 添加相对定位 */
+    position: relative;
+}
+
+.move {
+    width: 300px;
+    height: 300px;
+    border:solid 10px #000;
+    border-radius: 50%;
+    /* 添加绝对定位 */
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* 溢出隐藏 */
+    overflow: hidden;
+    box-shadow: 0 0 20px #000;
+}
+.move img {
+    position: absolute;
+    left: 0;
+    top:0;
+}
+.hidden {
+    opacity: 0;
+}

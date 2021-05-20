@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setumax</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='setu/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <img src="{{ link }} " referrerPolicy="no-referrer" width="100%">
+        <div class="move">
+            <img src="{{ link }}" referrerPolicy="no-referrer" >
+        </div>
+    </div>
+    <script>
+        // 获取对象元素
+        const container = document.querySelector('.container');
+        const move = document.querySelector('.move');
+        const bigImg = document.querySelector('.move img');
+
+        container.addEventListener('mouseover',function(){
+            move.classList.remove('hidden');
+        });
+        container.addEventListener('mouseout',function(){
+            move.classList.add('hidden');
+        });
+        container.addEventListener('mousemove', function (e) {
+            // 获取鼠标距离左侧的偏移
+            let x = e.clientX;
+            // 获取container距离左侧的偏移
+            let l = container.offsetLeft;
+            // 计算move最终的left
+            let moveLeft = x - l - move.offsetWidth / 2;
+            // 边界检测
+            if (moveLeft <= 0) moveLeft = 0;
+            // 获取右侧最大Left
+            let maxLeft = container.offsetWidth - move.offsetWidth;
+            if (moveLeft >= maxLeft) moveLeft = maxLeft;
+            // 设置样式
+            move.style.left = moveLeft + 'px';
+            // 计算大图的left
+            let bigImgLeft = (moveLeft + move.offsetWidth / 2) / container.offsetWidth * bigImg.offsetWidth -
+                move.offsetWidth / 2;
+            // 设置样式
+            bigImg.style.left = -bigImgLeft + 'px';
+
+            // 获取鼠标距离左侧的偏移
+            let y = e.clientY;
+            // 获取container距离左侧的偏移
+            let t = container.offsetTop;
+            // 计算move最终的left
+            let moveTop = y - t - move.offsetHeight / 2;
+            // 边界检测
+            // if (moveTop <= 0) moveTop = 0;
+            // // 获取右侧最大Left
+            // let maxTop = container.offsetHeight - move.offsetHeight;
+            // if (moveTop >= maxTop) moveTop = maxTop;
+            // 设置样式
+            move.style.top = moveTop + 'px';
+            // 计算大图的left
+            let bigImgTop = (moveTop + move.offsetHeight / 2) / container.offsetHeight * bigImg.offsetHeight -
+                move.offsetHeight / 2;
+            // 设置样式
+            bigImg.style.top = -bigImgTop + 'px';
+        });
+    </script>
+</body>
+
+</html>

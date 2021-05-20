@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>waterfall flow</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename="waterfallflow/style.css")}}">
+</head>
+<body>
+  <div class="container">
+    <div class="item-box">
+      <div class="bg">
+        <img src="{{ url_for('static', filename ='images/01.jpg') }}" alt="01.jpg" referrerPolicy="no-referrer">
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="bg">
+        <img src="{{ url_for('static', filename ='images/02.jpg') }}" alt="02.jpg" referrerPolicy="no-referrer">
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="bg">
+        <img src="{{ url_for('static', filename ='images/03.jpg') }}" alt="03.jpg" referrerPolicy="no-referrer">
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="bg">
+        <img src="{{ url_for('static', filename ='images/04.jpg') }}" alt="04.jpg" referrerPolicy="no-referrer">
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="bg">
+        <img src="{{ url_for('static', filename ='images/05.jpg') }}" alt="05.jpg" referrerPolicy="no-referrer">
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="bg">
+        <img src="{{ url_for('static', filename ='images/06.jpg') }}" alt="06.jpg" referrerPolicy="no-referrer">
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="bg">
+        <img src="{{ url_for('static', filename ='images/07.jpg') }}" alt="07.jpg" referrerPolicy="no-referrer">
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="bg">
+        <img src="{{ url_for('static', filename ='images/08.jpg') }}" alt="08.jpg" referrerPolicy="no-referrer">
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="bg">
+        <img src="{{ url_for('static', filename ='images/09.jpg') }}" alt="09.jpg" referrerPolicy="no-referrer">
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="bg">
+        <img src="{{ url_for('static', filename ='images/10.jpg') }}" alt="10.jpg" referrerPolicy="no-referrer">
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="bg">
+        <img src="{{ url_for('static', filename ='images/11.jpg') }}" alt="11.jpg" referrerPolicy="no-referrer">
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="bg">
+        <img src="{{ url_for('static', filename ='images/12.jpg') }}" alt="12.jpg" referrerPolicy="no-referrer">
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="bg">
+        <img src="{{ url_for('static', filename ='images/13.jpg') }}" alt="13.jpg" referrerPolicy="no-referrer">
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="bg">
+        <img src="{{ url_for('static', filename ='images/14.jpg') }}" alt="14.jpg" referrerPolicy="no-referrer">
+      </div>
+    </div>
+    <div class="item-box">
+      <div class="bg">
+        <img src="{{ url_for('static', filename ='images/15.jpg') }}" alt="15.jpg" referrerPolicy="no-referrer">
+      </div>
+    </div>
+
+    <span class="item-line"></span>
+    <span class="item-line"></span>
+    <span class="item-line"></span>
+    <span class="item-line"></span>
+  </div>
+</body>
+<script>
+    let links = {{ links }};
+    let i = 0;
+    let items = document.getElementsByTagName("img");
+    for(let item=0; i<=items.length; item++){
+            items[item].src = links[i++];
+    }
+</script>
+</html>
