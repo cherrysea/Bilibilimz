@@ -12,17 +12,23 @@ app.config['JSON_AS_ASCII'] = False # 配置编码显示中文
 def index():
     return 'Hello world'
 
+@app.route('/getsetu', methods=['GET'])
+def get_setu():
+    setu = SetuItem()
+    link = setu.get_setu()
+    return jsonify(link)
+
 @app.route('/setus', methods=['GET'])
 def get_setus():
     setu = SetuItem()
     data = setu.get_setus()
     print(data)
     print("获取成功！")
-    return jsonify(data)
     setu.close()
+    return jsonify(data)
 
 @app.route('/setu', methods=['GET'])
-def get_setu():
+def get_setu_img():
     setu = SetuItem()
     link = str(setu.get_setu())
     return render_template('index.html', link=link)
